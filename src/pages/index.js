@@ -38,7 +38,7 @@ class IndexPage extends React.Component {
         </p>
         <br/>
         <Link 
-          to="/page-2/"
+          to="/contribute/"
         >
           <button
             className="join-btn"
@@ -81,7 +81,8 @@ class IndexPage extends React.Component {
               <p
                 style={{
                   fontFamily: "Gabriela, sans-serif",
-                  fontSize: "18pt"
+                  fontSize: "18pt",
+                  lineHeight: 1.3
                 }}
               >
                 {p.body.S}

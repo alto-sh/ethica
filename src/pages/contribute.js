@@ -10,7 +10,7 @@ class SecondPage extends React.Component {
 
   async submit() {
     const body = JSON.stringify({
-      id: "rand-4",
+      id: uuidv4().toString(),
       header: $("#post-header").val(),
       body: $("#post-body").val(),
       timestamp: (new Date()).getTime()
@@ -21,6 +21,8 @@ class SecondPage extends React.Component {
     })
     .then(res => res.json())
     .then(data => { console.log(data); });
+
+    window.location.href = window.location.origin;
   }
 
   render() {
