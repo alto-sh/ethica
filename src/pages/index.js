@@ -4,61 +4,95 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+class IndexPage extends React.Component {
 
-const IndexPage = () => {
-  return (
-    <Layout>
-      <SEO title="Ethica" />
-      <br/>
-      <p
-        style={{
-          fontFamily: "Gabriela, sans-serif",
-          fontSize: "22pt",
-          fontWeight: "bold",
-          color: "#666",
-          lineHeight: "1.4",
-        }}
-      >
-        Thoughts on Computing Ethics.
-      </p>
-      <br/>
-      <Link 
-        to="/page-2/"
-      >
-        <button
-          className="join-btn"
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      posts: []
+    }
+  }
+
+  async componentDidMount() {
+    const data = await fetch(`https://fqpvlyf9q9.execute-api.us-east-2.amazonaws.com/prod/posts`);
+    const posts = await data.json();
+    this.setState({ posts: posts });
+  }
+
+  render () {
+    return (
+      <Layout>
+        <SEO title="Ethica" />
+        <br/>
+        <p
           style={{
-            fontFamily: "Gabriela, sans-serif"
+            fontFamily: "Gabriela, sans-serif",
+            fontSize: "22pt",
+            fontWeight: "bold",
+            color: "#666",
+            lineHeight: "1.4",
           }}
         >
-          Write a Post
-        </button>
-      </Link>
-      &nbsp;&nbsp;
-      <Link 
-        to="https://airtable.com/shrYonv1BROnD6Yc9"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <button
-          className="join-btn"
-          style={{
-            fontFamily: "Gabriela, sans-serif"
-          }}
+          Thoughts on Computing Ethics.
+        </p>
+        <br/>
+        <Link 
+          to="/page-2/"
         >
-          Join Alto
-        </button>
-      </Link>
-      <br/><br/>
-      <hr/>
-      <br/>
-      <h1>Posts</h1>
-      {/*<p>
-        <Link to="/page-2/">Go to page 2</Link> <br />
-        <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-      </p>*/}
-    </Layout>
-  )
+          <button
+            className="join-btn"
+            style={{
+              fontFamily: "Gabriela, sans-serif"
+            }}
+          >
+            Write a Post
+          </button>
+        </Link>
+        &nbsp;&nbsp;
+        <Link 
+          to="https://airtable.com/shrYonv1BROnD6Yc9"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <button
+            className="join-btn"
+            style={{
+              fontFamily: "Gabriela, sans-serif"
+            }}
+          >
+            Join Alto
+          </button>
+        </Link>
+        <br/><br/>
+        <hr/>
+        <br/>
+        <h1>Posts</h1>
+        <br/>
+        {
+          this.state.posts.map(p => (
+            <>
+              <Link to="/" className="post-link">
+                <h1>📃 {p.header.S}</h1>
+              </Link>
+              <h4>
+                  {(new Date(parseInt(p.timestamp.N))).toDateString()}
+              </h4>
+              <p
+                style={{
+                  fontFamily: "Gabriela, sans-serif",
+                  fontSize: "18pt"
+                }}
+              >
+                {p.body.S}
+              </p>
+              <br/>
+            </>
+          ))
+        }
+      </Layout>
+    )
+  }
 }
 
-export default IndexPage
+export default IndexPage;

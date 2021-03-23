@@ -669,9 +669,20 @@ pre tt:after {
   font-weight: bold;
 }
 #post-body:hover, #post-header:hover {
-  cursor: pointer;
+  cursor: auto;
   background: rgba(0, 0, 0, 0.06);
 }
 #post-body:focus, #post-header:focus {
   cursor: auto;
+}
+.post-link:hover {
+  color: #666;
+  cursor: default;
+}
+.post-link > h1, h4 {
+  font-family: Gabriela, sans-serif;
+}
+.post-link > h1 {
+  text-decoration: underline;
+  display: inline-block;
 }
