@@ -611,15 +611,16 @@ pre tt:after {
     font-size: 100%;
   }
 }
-#join-btn {
+.join-btn {
   padding: 20px;
   border-radius: .7rem;
   font-size: 19pt;
   font-weight: bold;
   background: white;
   transition: all .25s;
+  font-family: Gabriela, sans-serif;
 }
-#join-btn:hover {
+.join-btn:hover {
   background: black;
   color: white;
   cursor: pointer;
@@ -648,4 +649,29 @@ pre tt:after {
 }
 .in-progress {
   color: royalblue;
+}
+#post-body, #post-header {
+  background: rgba(0, 0, 0, 0.04);
+  transition: background .25s;
+  width: 100%;
+  resize: none;
+  border-radius: .7rem;
+  outline: none;
+  border: 0;
+  padding: 20px;
+  font-family: Gabriela, sans-serif;
+}
+#post-body {
+  min-height: 300px;
+}
+#post-header {
+  font-size: 30pt;
+  font-weight: bold;
+}
+#post-body:hover, #post-header:hover {
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.06);
+}
+#post-body:focus, #post-header:focus {
+  cursor: auto;
 }

@@ -1,15 +1,32 @@
 import * as React from "react"
-import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const SecondPage = () => (
   <Layout>
-    <SEO title="Page two" />
-    <h1>Hi from the second page</h1>
-    <p>Welcome to page 2</p>
-    <Link to="/">Go back to the homepage</Link>
+    <SEO title="Write a Post" />
+    <h1>Write a Post</h1>
+    <p>Speak your mind...</p>
+    <hr/>
+    <input
+      id="post-header"
+      placeholder="Header..."
+    />
+    <br/><br/>
+    <textarea
+      id="post-body"
+      style={{
+        width: "100%",
+        fontSize: "18pt"
+      }}
+      placeholder="Speak your mind..."
+    >
+    </textarea>
+    <br/><br/>
+    <button
+      className="join-btn"
+    >Submit</button>
   </Layout>
 )
 

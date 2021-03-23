@@ -26,7 +26,7 @@ const IndexPage = () => {
         to="/page-2/"
       >
         <button
-          id="join-btn"
+          className="join-btn"
           style={{
             fontFamily: "Gabriela, sans-serif"
           }}
@@ -41,7 +41,7 @@ const IndexPage = () => {
         rel="noreferrer"
       >
         <button
-          id="join-btn"
+          className="join-btn"
           style={{
             fontFamily: "Gabriela, sans-serif"
           }}
