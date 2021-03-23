@@ -37,7 +37,16 @@ const Header = ({ siteTitle }) => (
               verticalAlign: "bottom",
             }}
           />
-          {siteTitle}<span style={{ color: "#666", fontSize: "1.4rem" }}> by Alto</span>
+          {siteTitle}
+        </Link>
+        <Link
+          to="https://alto.sh"
+          style={{
+            textDecoration: `none`,
+            fontFamily: `Gabriela, sans-serif`,
+          }}
+        >
+          <span style={{ color: "#666", fontSize: "1.4rem" }}> by Alto</span>
         </Link>
       </h1>
     </div>
