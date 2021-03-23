@@ -6,14 +6,9 @@ import SEO from "../components/seo"
 
 
 const IndexPage = () => {
-  const projects = [
-    { name: "Colandria", link: "https://github.com/alto-sh/colandria", description: "The Reading Directory for Bookworms", inProgress: true },
-    { name: "Amnis", link: "https://github.com/alto-sh/amnis", description: "The Thought Organizer for the 21st Century", inProgress: true }
-  ]
-
   return (
     <Layout>
-      <SEO title="Alto" />
+      <SEO title="Ethica" />
       <br/>
       <p
         style={{
@@ -24,9 +19,22 @@ const IndexPage = () => {
           lineHeight: "1.4",
         }}
       >
-        Alto is a community of young developers, writing code to build connections.
+        Thoughts on Computing Ethics.
       </p>
       <br/>
+      <Link 
+        to="/page-2/"
+      >
+        <button
+          id="join-btn"
+          style={{
+            fontFamily: "Gabriela, sans-serif"
+          }}
+        >
+          Write a Post
+        </button>
+      </Link>
+      &nbsp;&nbsp;
       <Link 
         to="https://airtable.com/shrYonv1BROnD6Yc9"
         target="_blank"
@@ -44,20 +52,7 @@ const IndexPage = () => {
       <br/><br/>
       <hr/>
       <br/>
-      <h1>Portfolio</h1>
-      {
-        projects.map(p => (
-          <Link to={p.link}>
-            <div className="project-callout">
-              <h2>
-                {p.name}
-                {p.inProgress ? <span className="in-progress">&nbsp;&nbsp;In Development</span> : null}
-              </h2>
-              <p>{p.description}</p>
-            </div>
-          </Link>
-        ))
-      }
+      <h1>Posts</h1>
       {/*<p>
         <Link to="/page-2/">Go to page 2</Link> <br />
         <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
