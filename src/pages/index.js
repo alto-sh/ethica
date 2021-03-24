@@ -16,7 +16,8 @@ class IndexPage extends React.Component {
 
   async componentDidMount() {
     const data = await fetch(`https://fqpvlyf9q9.execute-api.us-east-2.amazonaws.com/prod/posts`);
-    const posts = await data.json();
+    let posts = await data.json();
+    posts.sort((a, b) => parseInt(b.timestamp.N) - parseInt(a.timestamp.N));
     this.setState({ posts: posts });
   }
 
